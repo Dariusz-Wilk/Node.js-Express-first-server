@@ -3,24 +3,36 @@ const path = require('path');
 
 const app = express();
 
+//MIDDLEWARE with no 'path' parameter to work for each endpoint
+app.use((req, res, next) => {
+	res.show = name => {
+		res.sendFile(path.join(__dirname, `/views/${name}`));
+	};
+	next();
+});
+
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, './views/index.html'));
+	res.show('index.html');
 });
 
 app.get('/about', (req, res) => {
-	res.sendFile(path.join(__dirname, './views/about.html'));
+	res.show('about.html');
+	// res.sendFile(path.join(__dirname, './views/about.html'));
 });
 
 app.get('/contact', (req, res) => {
-	res.sendFile(path.join(__dirname, './views/contact.html'));
+	res.show('contact.html');
+	// res.sendFile(path.join(__dirname, './views/contact.html'));
 });
 
 app.get('/info', (req, res) => {
-	res.sendFile(path.join(__dirname, './views/info.html'));
+	res.show('info.html');
+	// res.sendFile(path.join(__dirname, './views/info.html'));
 });
 
 app.get('/history', (req, res) => {
-	res.sendFile(path.join(__dirname, './views/history.html'));
+	res.show('history.html');
+	// res.sendFile(path.join(__dirname, './views/history.html'));
 });
 
 app.listen(8000, () => {
