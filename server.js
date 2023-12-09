@@ -17,22 +17,18 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
 	res.show('about.html');
-	// res.sendFile(path.join(__dirname, './views/about.html'));
 });
 
 app.get('/contact', (req, res) => {
 	res.show('contact.html');
-	// res.sendFile(path.join(__dirname, './views/contact.html'));
 });
 
 app.get('/info', (req, res) => {
 	res.show('info.html');
-	// res.sendFile(path.join(__dirname, './views/info.html'));
 });
 
 app.get('/history', (req, res) => {
 	res.show('history.html');
-	// res.sendFile(path.join(__dirname, './views/history.html'));
 });
 
 app.use((req, res) => {
